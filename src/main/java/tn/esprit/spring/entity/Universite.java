@@ -2,6 +2,7 @@ package tn.esprit.spring.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -15,4 +16,8 @@ public class Universite {
     private Long idUniversite;
     private String nomUniversite;
     private String adresse;
+
+
+    @OneToMany(mappedBy = "universite", cascade = CascadeType.ALL)
+    private Set<Foyer> foyers;
 }

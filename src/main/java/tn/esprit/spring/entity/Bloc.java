@@ -2,6 +2,7 @@ package tn.esprit.spring.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,4 +17,9 @@ public class Bloc {
     private String nomBloc;
     private Long capaciteBloc;
 
+    @OneToMany(mappedBy = "bloc", cascade = CascadeType.ALL)
+    private Set<Chambre> chambres;
+
+    @ManyToOne
+    private Foyer foyer;
 }

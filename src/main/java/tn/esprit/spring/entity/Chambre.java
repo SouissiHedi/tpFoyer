@@ -18,4 +18,11 @@ public class Chambre {
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
 
+
+    @ManyToOne
+    private Bloc bloc;
+
+    @OneToOne(mappedBy = "chambre")
+    private Reservation reservation;
+
 }
